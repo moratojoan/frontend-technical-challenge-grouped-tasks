@@ -16,4 +16,18 @@ describe('Home', () => {
     await user.click(summaryElement);
     expect(checkboxElement).not.toBeVisible();
   });
+
+  it('checkbox toggles when clicking task name', async () => {
+    const { getByText, getByLabelText } = render(<Home />);
+
+    const summaryElement = getByText('General Info');
+    await user.click(summaryElement);
+
+    const checkboxElement = getByLabelText('Add name and surname');
+    expect(checkboxElement).toHaveAttribute('type', 'checkbox');
+    expect(checkboxElement).toBeChecked();
+
+    await user.click(checkboxElement);
+    expect(checkboxElement).not.toBeChecked();
+  });
 });
