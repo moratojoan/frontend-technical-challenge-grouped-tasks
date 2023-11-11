@@ -8,7 +8,7 @@ interface Task {
   value: number;
   checked: boolean;
 }
-interface TasksGroup {
+export interface TasksGroup {
   name: string;
   tasks: Task[];
 }
