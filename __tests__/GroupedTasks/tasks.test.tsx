@@ -3,7 +3,7 @@ import user from '@testing-library/user-event';
 import GroupedTasks from '@/components/GroupedTasks/index.client';
 import groupedTasks from './mocks/groupedTasks.json';
 
-describe('GroupedTasks', () => {
+describe('Tasks', () => {
   it('shows and hides tasks when clicking group name', async () => {
     const { getByText, getByLabelText } = render(
       <GroupedTasks initialGroupedTasks={groupedTasks} />
