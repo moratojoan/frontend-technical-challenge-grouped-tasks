@@ -2,7 +2,11 @@
 
 import { useState } from 'react';
 import { Group } from './components/Group';
-import { type TasksGroup, updateGroupedTasks } from '@/lib/GroupedTasks';
+import {
+  type TasksGroup,
+  updateGroupedTasks,
+  calculateProgress,
+} from '@/lib/GroupedTasks';
 
 interface GroupedTasksProps {
   initialGroupedTasks: TasksGroup[];
@@ -25,8 +29,14 @@ export default function GroupedTasks({
         return newState;
       });
     };
+
+  const progress = calculateProgress(groupedTasks);
   return (
-    <div>
+    <article>
+      <header>
+        <h3>Lodgify Grouped Tasks</h3>
+        <p>{progress}%</p>
+      </header>
       {groupedTasks.map((group) => (
         <Group
           key={group.name}
@@ -34,6 +44,6 @@ export default function GroupedTasks({
           onChangeTask={createHandleChangeTask(group)}
         />
       ))}
-    </div>
+    </article>
   );
 }

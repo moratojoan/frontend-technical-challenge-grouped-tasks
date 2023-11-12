@@ -1,0 +1,33 @@
+
+[
+  {
+    "name": "General Info",
+    "tasks": [
+      {
+        "description": "Add name and surname",
+        "value": 36,
+        "checked": true
+      },
+      {
+        "description": "Add email",
+        "value": 87,
+        "checked": false
+      }
+    ]
+  },
+  {
+    "name": "Accomiplishments",
+    "tasks": [
+      {
+        "description": "Wrote a small poem about the birthday",
+        "value": 150,
+        "checked": false
+      },
+      {
+        "description": "Avoid the annoying neighbor",
+        "value": 150,
+        "checked": false
+      }
+    ]
+  }
+]
