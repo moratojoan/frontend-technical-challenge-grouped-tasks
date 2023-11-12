@@ -1,8 +1,8 @@
 import styles from './page.module.css';
-import Progress from '@/components/Progress';
+import GroupedTasks from '@/components/GroupedTasks';
 import { type TasksGroup } from '@/lib/types';
 
-const progressData: TasksGroup[] = [
+const groupedTasks: TasksGroup[] = [
   {
     name: 'General Info',
     tasks: [
@@ -99,7 +99,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <section>
-        <Progress initialProgressData={progressData} />
+        <GroupedTasks initialGroupedTasks={groupedTasks} />
       </section>
     </main>
   );
