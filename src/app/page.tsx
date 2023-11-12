@@ -1,6 +1,6 @@
 import styles from './page.module.css';
 import GroupedTasks from '@/components/GroupedTasks';
-import { type TasksGroup } from '@/lib/types';
+import { type TasksGroup } from '@/lib/GroupedTasks';
 
 const groupedTasks: TasksGroup[] = [
   {

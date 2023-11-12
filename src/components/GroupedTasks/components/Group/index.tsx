@@ -1,4 +1,4 @@
-import { type TasksGroup } from '@/lib/types';
+import { type TasksGroup } from '@/lib/GroupedTasks';
 
 interface GroupProps {
   tasksGroup: TasksGroup;

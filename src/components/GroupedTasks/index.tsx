@@ -1,34 +1,27 @@
 'use client';
 
 import { useState } from 'react';
-import { type TasksGroup } from '@/lib/types';
 import { Group } from './components/Group';
+import { type TasksGroup, updateGroupedTasks } from '@/lib/GroupedTasks';
 
 interface GroupedTasksProps {
   initialGroupedTasks: TasksGroup[];
 }
+
 export default function GroupedTasks({
   initialGroupedTasks,
 }: GroupedTasksProps) {
   const [groupedTasks, setGroupedTasks] = useState(initialGroupedTasks);
 
   const createHandleChangeTask =
-    (groupName: TasksGroup['name']) =>
+    (groupToChange: TasksGroup) =>
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setGroupedTasks((state) => {
-        const newState = state.map((group) => {
-          if (group.name !== groupName) return group;
-          return {
-            ...group,
-            tasks: group.tasks.map((task) => {
-              if (task.description !== event.target.value) return task;
-              return {
-                ...task,
-                checked: event.target.checked,
-              };
-            }),
-          };
-        });
+        const taskToChange = {
+          description: event.target.value,
+          checked: event.target.checked,
+        };
+        const newState = updateGroupedTasks(state, groupToChange, taskToChange);
         return newState;
       });
     };
@@ -38,7 +31,7 @@ export default function GroupedTasks({
         <Group
           key={group.name}
           tasksGroup={group}
-          onChangeTask={createHandleChangeTask(group.name)}
+          onChangeTask={createHandleChangeTask(group)}
         />
       ))}
     </div>
