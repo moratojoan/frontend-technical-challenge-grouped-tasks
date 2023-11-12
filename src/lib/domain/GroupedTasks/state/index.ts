@@ -1,4 +1,4 @@
-import { type Task, type TasksGroup } from '@/lib/GroupedTasks/types';
+import { type Task, type TasksGroup } from '../types';
 
 export function updateGroupedTasks(
   prevState: TasksGroup[],

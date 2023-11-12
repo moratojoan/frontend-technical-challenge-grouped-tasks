@@ -6,7 +6,7 @@ import {
   type TasksGroup,
   updateGroupedTasks,
   calculateProgress,
-} from '@/lib/GroupedTasks';
+} from '@/lib/domain/GroupedTasks';
 
 interface GroupedTasksProps {
   initialGroupedTasks: TasksGroup[];
