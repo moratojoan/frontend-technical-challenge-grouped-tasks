@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
 import user from '@testing-library/user-event';
 import Home from '../src/app/page';
-import '@testing-library/jest-dom';
 
 describe('Home', () => {
   it('shows and hides tasks when clicking group name', async () => {

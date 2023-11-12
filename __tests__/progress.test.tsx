@@ -5,8 +5,6 @@ import groupedTasks from './mocks/groupedTasks.json';
 import allCheckedGroupedTasks from './mocks/allCheckedGroupedTasks.json';
 import allUnCheckedGroupedTasks from './mocks/allUnCheckedGroupedTasks.json';
 
-import '@testing-library/jest-dom';
-
 describe('Progress', () => {
   it('Out of a total value of 423, only one task with value 36 is checked and shows a progress of 8.51%.', async () => {
     const { getByText } = render(
