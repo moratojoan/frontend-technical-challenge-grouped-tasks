@@ -1,10 +1,13 @@
 import { render } from '@testing-library/react';
 import user from '@testing-library/user-event';
-import Home from '../src/app/page';
+import GroupedTasks from '@/components/GroupedTasks/index.client';
+import groupedTasks from './mocks/groupedTasks.json';
 
-describe('Home', () => {
+describe('GroupedTasks', () => {
   it('shows and hides tasks when clicking group name', async () => {
-    const { getByText, getByLabelText } = render(<Home />);
+    const { getByText, getByLabelText } = render(
+      <GroupedTasks initialGroupedTasks={groupedTasks} />
+    );
 
     const summaryElement = getByText('General Info');
 
@@ -17,7 +20,9 @@ describe('Home', () => {
   });
 
   it('checkbox toggles when clicking task name', async () => {
-    const { getByText, getByLabelText } = render(<Home />);
+    const { getByText, getByLabelText } = render(
+      <GroupedTasks initialGroupedTasks={groupedTasks} />
+    );
 
     const summaryElement = getByText('General Info');
     await user.click(summaryElement);

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import GroupedTasks from '@/components/GroupedTasks';
+import GroupedTasks from '@/components/GroupedTasks/index.client';
 import groupedTasks from './mocks/groupedTasks.json';
 import allCheckedGroupedTasks from './mocks/allCheckedGroupedTasks.json';
 import allUnCheckedGroupedTasks from './mocks/allUnCheckedGroupedTasks.json';
