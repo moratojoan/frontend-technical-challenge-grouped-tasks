@@ -1,17 +1,6 @@
-'use client';
-
-import { useState } from 'react';
 import styles from './page.module.css';
-
-interface Task {
-  description: string;
-  value: number;
-  checked: boolean;
-}
-export interface TasksGroup {
-  name: string;
-  tasks: Task[];
-}
+import Progress from '@/components/Progress';
+import { type TasksGroup } from '@/lib/types';
 
 const progressData: TasksGroup[] = [
   {
@@ -107,51 +96,10 @@ const progressData: TasksGroup[] = [
 ];
 
 export default function Home() {
-  const [tasksGroups, setTasksGroups] = useState(progressData);
-
-  const createHandleToggleCheckbox =
-    (groupName: TasksGroup['name'], taskToggled: Task) =>
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setTasksGroups((state) => {
-        const newState = state.map((group) => {
-          if (group.name !== groupName) return group;
-          return {
-            ...group,
-            tasks: group.tasks.map((task) => {
-              if (task.description !== taskToggled.description) return task;
-              return {
-                ...task,
-                checked: event.target.checked,
-              };
-            }),
-          };
-        });
-        return newState;
-      });
-    };
   return (
     <main className={styles.main}>
       <section>
-        {tasksGroups.map((group) => (
-          <details key={group.name}>
-            <summary>{group.name}</summary>
-            <ul>
-              {group.tasks.map((task) => (
-                <li key={task.description}>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={task.checked}
-                      onChange={createHandleToggleCheckbox(group.name, task)}
-                      value={task.description}
-                    />
-                    {task.description}
-                  </label>
-                </li>
-              ))}
-            </ul>
-          </details>
-        ))}
+        <Progress initialProgressData={progressData} />
       </section>
     </main>
   );
