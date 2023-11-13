@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Group } from './components/Group';
 import {
   type TasksGroup,
   updateGroupedTasks,
   calculateProgress,
 } from '@/lib/domain/GroupedTasks';
+import { Group } from './components/Group';
+import styles from './styles.module.css';
 
 interface GroupedTasksProps {
   initialGroupedTasks: TasksGroup[];
@@ -32,10 +33,21 @@ export default function GroupedTasks({
 
   const progress = calculateProgress(groupedTasks);
   return (
-    <article>
-      <header>
-        <h3>Lodgify Grouped Tasks</h3>
-        <p>{progress}%</p>
+    <article className={styles.groupedTasks_wrapper}>
+      <header className={styles.groupedTasks_header}>
+        <h3 className={styles.groupedTasks_title}>Lodgify Grouped Tasks</h3>
+        <div className={styles.progress}>
+          <div
+            className={styles.progress_bar}
+            role="progressbar"
+            style={{ width: `${progress}%` }}
+            aria-valuenow={25}
+            aria-valuemin={0}
+            aria-valuemax={100}
+          >
+            <span>{progress}%</span>
+          </div>
+        </div>
       </header>
       {groupedTasks.map((group) => (
         <Group
