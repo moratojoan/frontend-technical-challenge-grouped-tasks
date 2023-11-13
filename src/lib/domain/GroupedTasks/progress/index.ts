@@ -1,4 +1,4 @@
-import { type TasksGroup } from '../types';
+import { TasksGroup } from '../types';
 
 function sum(a: number, b: number): number {
   return a + b;
@@ -27,4 +27,8 @@ export function calculateProgress(groupedTasks: TasksGroup[]): number {
 
   const progress = normalizedValues.reduce(sum, 0);
   return Number(progress.toFixed(2));
+}
+
+export function checkIfAllTaskAreCompleted(tasksGroup: TasksGroup) {
+  return tasksGroup.tasks.every(({ checked }) => checked);
 }

@@ -22,10 +22,21 @@
   padding: 1rem;
   gap: 2rem;
 
-  & span:last-of-type {
+  & span {
     display: flex;
     align-items: center;
+  }
+
+  & span:first-of-type {
+    gap: 1rem;
+  }
+
+  & span:last-of-type {
     gap: 0.5rem;
     color: #acacac;
   }
+}
+
+.group_completed {
+  color: rgb(var(--color-primary-400));
 }

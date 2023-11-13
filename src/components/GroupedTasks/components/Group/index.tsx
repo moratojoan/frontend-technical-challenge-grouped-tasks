@@ -4,6 +4,9 @@ import styles from './styles.module.css';
 import { useState } from 'react';
 import { ChevronUp } from '@/components/ui/icons/ChevronUp';
 import { ChevronDown } from '@/components/ui/icons/ChevronDown';
+import { ClipboardCheck } from '@/components/ui/icons/ClipboardCheck';
+import { ClipboardList } from '@/components/ui/icons/ClipboardList';
+import { checkIfAllTaskAreCompleted } from '@/lib/domain/GroupedTasks/progress';
 
 interface GroupProps {
   tasksGroup: TasksGroup;
@@ -17,10 +20,19 @@ export function Group({ tasksGroup, onChangeTask }: GroupProps) {
     setOpen((state) => !state);
   };
 
+  const isCompleted = checkIfAllTaskAreCompleted(tasksGroup);
   return (
     <details className={styles.group} open={open}>
-      <summary onClick={toggleOpen} className={styles.group_summary}>
-        <span>{tasksGroup.name}</span>
+      <summary
+        onClick={toggleOpen}
+        className={`${styles.group_summary} ${
+          isCompleted ? styles.group_completed : ''
+        }`}
+      >
+        <span>
+          {isCompleted ? <ClipboardCheck /> : <ClipboardList />}
+          {tasksGroup.name}
+        </span>
         <span>
           {open ? (
             <>
