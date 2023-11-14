@@ -3,6 +3,8 @@
   border-radius: var(--border-radius);
   background-color: #ffffff;
   border: 1px solid var(--border-color);
+  min-width: 600px;
+  max-width: 600px;
 }
 
 .groupedTasks_header {
