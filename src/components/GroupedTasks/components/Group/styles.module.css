@@ -14,29 +14,3 @@
     border-bottom-left-radius: var(--border-radius);
   }
 }
-
-.group_summary {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  gap: 2rem;
-
-  & span {
-    display: flex;
-    align-items: center;
-  }
-
-  & span:first-of-type {
-    gap: 1rem;
-  }
-
-  & span:last-of-type {
-    gap: 0.5rem;
-    color: #acacac;
-  }
-}
-
-.group_completed {
-  color: rgb(var(--color-primary-400));
-}
