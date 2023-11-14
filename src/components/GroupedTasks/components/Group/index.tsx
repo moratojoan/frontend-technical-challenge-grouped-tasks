@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { type TasksGroup } from '@/lib/domain/GroupedTasks';
+import { Checkbox } from '@/components/ui/Checkbox';
+import { Label } from '@/components/ui/Label';
 import { Summary } from './components/Summary';
 import styles from './styles.module.css';
 
@@ -21,16 +23,14 @@ export function Group({ tasksGroup, onChangeTask }: GroupProps) {
       <ul className={styles.group_list}>
         {tasksGroup.tasks.map((task) => (
           <li key={task.description} className={styles.group_item}>
-            <label className={styles.checkbox_label}>
-              <input
-                className={styles.checkbox_input}
-                type="checkbox"
+            <Label>
+              <Checkbox
                 checked={task.checked}
                 onChange={onChangeTask}
                 value={task.description}
               />
               {task.description}
-            </label>
+            </Label>
           </li>
         ))}
       </ul>
