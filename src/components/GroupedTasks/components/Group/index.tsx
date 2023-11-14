@@ -18,11 +18,12 @@ export function Group({ tasksGroup, onChangeTask }: GroupProps) {
   return (
     <details className={styles.group} open={open}>
       <Summary open={open} onClick={toggleOpen} tasksGroup={tasksGroup} />
-      <ul>
+      <ul className={styles.group_list}>
         {tasksGroup.tasks.map((task) => (
-          <li key={task.description}>
-            <label>
+          <li key={task.description} className={styles.group_item}>
+            <label className={styles.checkbox_label}>
               <input
+                className={styles.checkbox_input}
                 type="checkbox"
                 checked={task.checked}
                 onChange={onChangeTask}

@@ -14,3 +14,29 @@
     border-bottom-left-radius: var(--border-radius);
   }
 }
+
+.group_list {
+  padding: 0.5rem 0;
+}
+
+.group_item {
+  display: flex;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.checkbox_label {
+  cursor: pointer;
+  padding-right: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox_input {
+  cursor: pointer;
+  margin: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  accent-color: rgb(var(--color-primary-600));
+}
