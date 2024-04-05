@@ -1,4 +1,4 @@
-# Lodgify - FE Technical Challenge - Joan Interview
+# FE Technical Challenge
 
 ## How to run the project?
 
